@@ -1,0 +1,13 @@
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "main" {
+  name     = "${var.resource_group_name}-${var.environment}"
+  location = var.location
+
+  tags = {
+    environment = var.environment
+    created_by  = "Terraform"
+  }
+}
